@@ -73,8 +73,8 @@ var app = {
 
 
 
-	document.getElementById('DeviceInfo').innerHTML = device.model+' '+device.platform+'<br> '+device.version+'<br>'+device.uuid;
-	document.getElementById('ConnectionInfo').innerHTML = 'connection '+navigator.connection.type
+	document.getElementById('DeviceInfo').innerHTML = device.model+' '+device.platform+'<br> '+device.version+'<br>'+device.uuid+'<br>connection: '+navigator.connection.type;
+	//document.getElementById('ConnectionInfo').innerHTML = 'connection '+navigator.connection.type
 
         console.log('Received Event: ' + id);
 
