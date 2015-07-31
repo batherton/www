@@ -89,9 +89,9 @@ body {
 
 }
 
-/* Landscape layout (with min-width) */
-
-	@media screen and (min-aspect-ratio: 1/1) and (min-width:400px) {
+/*
+ Landscape layout (with min-width) */
+@media screen and (min-aspect-ratio: 1/1) and (min-width:400px) {
 
     .app {
 
@@ -104,7 +104,6 @@ body {
                                       /* offset horizontal: half of image width and text area width */
 
     }
-
 }
 
 h1 {

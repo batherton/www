@@ -79,4 +79,9 @@ var app = {
         console.log('Received Event: ' + id);
 
     }
+
 };
+
+
+
+	navigator.geolocation.getCurrentPosition(geolocationSuccess,[geolocationError],[geolocationOptions]);
