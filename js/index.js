@@ -46,6 +46,7 @@ var app = {
 
 
 	  document.getElementById('DeviceInfo').innerHTML = device.model+' '+device.platform+'<br> '+device.version+'<br>'+device.uuid+'<br>connection: '+navigator.connection.type;
+	  SetTrackLocation();
     //    console.log('Received Event: ' + id);
 
     }
@@ -56,22 +57,22 @@ var app = {
 
 //var watchID = navigator.geolocation.getCurrentPosition(onCurLocSuccess, onCurLocError, { maximumAge: 3000, enableHighAccuracy: true });
 
-//function SetTrackLocation{
-//var TrackLocation = navigator.geolocation.watchPosition(onCurLocSuccess, onCurLocError, { maximumAge: 3000, enableHighAccuracy: true });
-//};
+function SetTrackLocation{
+var TrackLocation = navigator.geolocation.watchPosition(onCurLocSuccess, onCurLocError, { maximumAge: 3000, enableHighAccuracy: true });
+};
 
-//function onCurLocSuccess(position) {
-//    var element = document.getElementById('geolocation');
-//    element.innerHTML = 'Latitude: '  + position.coords.latitude      + '<br/>' +
-//                        'Longitude: ' + position.coords.longitude     + '<br/>' +
-//		        'Altitude: '          + position.coords.altitude          + '<br/>' +
-//		        'Accuracy: '          + position.coords.accuracy          + '<br/>' +
-//        		'Altitude Accuracy: ' + position.coords.altitudeAccuracy  + '<br/>' +
-//        		'Heading: '           + position.coords.heading           + '<br/>' +
-//        		'Speed: '             + position.coords.speed             + '<br/>' +
-//        		'Timestamp: '         + position.timestamp                + '<br/>'
+function onCurLocSuccess(position) {
+    var element = document.getElementById('geolocation');
+    element.innerHTML = 'Latitude: '  + position.coords.latitude      + '<br/>' +
+                        'Longitude: ' + position.coords.longitude     + '<br/>' +
+		        'Altitude: '          + position.coords.altitude          + '<br/>' +
+		        'Accuracy: '          + position.coords.accuracy          + '<br/>' +
+        		'Altitude Accuracy: ' + position.coords.altitudeAccuracy  + '<br/>' +
+        		'Heading: '           + position.coords.heading           + '<br/>' +
+        		'Speed: '             + position.coords.speed             + '<br/>' +
+        		'Timestamp: '         + position.timestamp                + '<br/>'
                        // '<hr />'      + element.innerHTML;
-//};
+};
 
 function onCurLocError(error) {
     alert('code: '    + error.code    + '\n' +
