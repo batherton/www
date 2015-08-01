@@ -13,8 +13,8 @@ var app = {
 
         document.addEventListener('deviceready', this.onDeviceReady, false);
 
-        document.addEventListener("offline", onOffline, false);
-        document.addEventListener("online", onOnline, false);
+       // document.addEventListener("offline", onOffline, false);
+       // document.addEventListener("online", onOnline, false);
     },
 
     onDeviceReady: function() {
@@ -46,7 +46,6 @@ var app = {
 
 
 	  document.getElementById('DeviceInfo').innerHTML = device.model+' '+device.platform+'<br> '+device.version+'<br>'+device.uuid+'<br>connection: '+navigator.connection.type;
-	  //SetTrackLocation();
     //    console.log('Received Event: ' + id);
 
     }
