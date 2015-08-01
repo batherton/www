@@ -46,7 +46,7 @@ var app = {
 
 
 	  document.getElementById('DeviceInfo').innerHTML = device.model+' '+device.platform+'<br> '+device.version+'<br>'+device.uuid+'<br>connection: '+navigator.connection.type;
-	  SetTrackLocation();
+	  //SetTrackLocation();
     //    console.log('Received Event: ' + id);
 
     }
