@@ -21,6 +21,8 @@ var app = {
 
         app.receivedEvent('deviceready');
 
+        app.TrackingEvent();
+
     },
 
 
