@@ -1,0 +1,314 @@
+* {
+    -webkit-tap-highlight-color: rgba(0,0,0,0); /* make transparent link selection, adjust last value opacity 0 to 1.0 */
+}
+
+body {
+    -webkit-touch-callout: none;                /* prevent callout to copy image, etc when tap to hold */
+    -webkit-text-size-adjust: none;             /* prevent webkit from resizing text to fit */
+    -webkit-user-select: text;                  /* prevent copy paste, to allow, change 'none' to 'text' */
+
+    background-color:#DBDBDB;
+    font-family:'HelveticaNeue-Light', 'HelveticaNeue', Helvetica, Arial, sans-serif;
+    font-size:12px;
+    height:100%;
+    margin:0px;
+    padding:0px;
+    text-transform:uppercase;
+    width:100%;
+}
+
+.TopMenu {
+    background-image:-webkit-gradient(
+        linear,
+        left top,
+        left bottom,
+        color-stop(0, #FDB200),
+        color-stop(0.51, #E58701)
+    );
+	position:fixed;
+	top:0px;
+	left:0px;
+	right:0px;
+	height:40px;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	text-align: center;
+	font-size: 16px;
+	font-weight: bold;
+	color: #ffffff;
+	vertical-align: middle;
+	line-height: 40px;
+}
+
+.BottomMenu {
+    background-image:-webkit-gradient(
+        linear,
+        left top,
+        left bottom,
+        color-stop(0, #464646),
+        color-stop(0.51, #242424)
+    );
+	position:fixed;
+	bottom:0px;
+	left:0px;
+	right:0px;
+	height:70px;
+	width:100%;
+	text-align: center;
+}
+.BottomMenuButton{
+	font-family:'HelveticaNeue-Light', 'HelveticaNeue', Helvetica, Arial, sans-serif;
+	font-size:12px;
+	color:#ffffff;
+	text-align: center;
+	border-right: 1px solid #cccccc;
+    	vertical-align:middle;
+}
+
+.BottomMenuRightButton{
+	font-family:'HelveticaNeue-Light', 'HelveticaNeue', Helvetica, Arial, sans-serif;
+	font-size:12px;
+	text-align: center;
+	color:#ffffff;
+    	vertical-align:middle;
+}
+
+.BottomMenuLeftButton{
+	font-family:'HelveticaNeue-Light', 'HelveticaNeue', Helvetica, Arial, sans-serif;
+	font-size:12px;
+	color:#ffffff;
+	border-right: 1px solid #cccccc;
+	text-align: center;
+    	vertical-align:middle
+}
+
+.button {
+	display: inline-block;
+	zoom: 1; /* zoom and *display = ie7 hack for display:inline-block */
+	*display: inline;
+	vertical-align: baseline;
+	margin: 0 2px;
+	outline: none;
+	cursor: pointer;
+	text-align: center;
+	text-decoration: none;
+	font: 14px/100% Arial, Helvetica, sans-serif;
+	padding: .5em 2em .55em;
+	text-shadow: 0 1px 1px rgba(0,0,0,.3);
+	-webkit-border-radius: .5em; 
+	-moz-border-radius: .5em;
+	border-radius: .5em;
+	-webkit-box-shadow: 0 1px 2px rgba(0,0,0,.2);
+	-moz-box-shadow: 0 1px 2px rgba(0,0,0,.2);
+	box-shadow: 0 1px 2px rgba(0,0,0,.2);
+}
+.button:hover {
+	text-decoration: none;
+}
+.button:active {
+	position: relative;
+	top: 1px;
+}
+.white {
+	color: #606060;
+	border: solid 1px #b7b7b7;
+	background: #fff;
+	background: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#ededed));
+	background: -moz-linear-gradient(top,  #fff,  #ededed);
+	filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#ededed');
+}
+.white:hover {
+	background: #ededed;
+	background: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#dcdcdc));
+	background: -moz-linear-gradient(top,  #fff,  #dcdcdc);
+	filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#dcdcdc');
+}
+.white:active {
+	color: #999;
+	background: -webkit-gradient(linear, left top, left bottom, from(#ededed), to(#fff));
+	background: -moz-linear-gradient(top,  #ededed,  #fff);
+	filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#ededed', endColorstr='#ffffff');
+}
+
+.AppContent {
+	background-color:#DBDBDB;
+	position:fixed;
+	top:106px;
+	bottom:71px;
+	left:0px;
+	right:0px;
+	overflow:auto;
+	text-align: center;
+	margin:auto;
+}
+.AppContentMain{
+	position: relative;
+	width:100%;
+	height:100%;
+	text-align: center;
+	margin:auto;
+}
+
+.AppSearch{
+	background-color:#ffffff;
+	border: 1px solid #ffffff;
+	border-radius: 16px;
+	height:44px;
+	width:92%;
+	position:fixed;
+	top:51px;
+	left:4%;
+	right:4%;
+}
+
+.PreLogin{
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	font-weight: bold;
+	text-align: center;
+	background-color:#DBDBDB;
+	height:65px;
+	width:100%;
+	position:fixed;
+	top:40px;
+	left:0px;
+	right:0px;
+}
+
+.AppSearchBoxTitle{
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	color:#92959C;
+	font-size: 14px;
+	font-weight: bold;
+}
+
+.AppSearchBox{
+	border: 0px;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	color:#000000;
+	font-size: 12px;
+	font-weight: bold;
+	height:20px;
+	width:96%;
+}
+
+.ContentWrapperDiv{
+	position:relative;
+	top:0px;
+	right:0px;
+	left:4%;
+}
+
+.FormFieldDiv{
+	border: 0px;
+	width:92%;
+	height:20px;
+}
+.FormTextField{
+	width:92%
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	color:#000000;
+	font-size: 14px;
+	font-weight: normal;
+	height:20px;
+	border: 1px solid #ffffff;
+	border-radius: 16px;
+}
+
+.FormFieldTitle{
+	border: 0px;
+	width:92%;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	color:#000000;
+	font-size: 14px;
+	font-weight: bold;
+	vertical-align: middle;
+	height:20px;
+	line-height: 20px;
+}
+
+.eMess{
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	text-align: center;
+	font-size: 16px;
+	font-weight: bold;
+	color: #ffffff;
+	vertical-align: middle;
+	line-height: 40px;
+	display:none;
+}
+.eMessErr{
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	text-align: center;
+	font-size: 16px;
+	font-weight: bold;
+	color: #ffffff;
+	vertical-align: middle;
+	line-height: 40px;
+	background-color:#ff6666;
+	display:block;
+}
+.eMessGood{
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	text-align: center;
+	font-size: 16px;
+	font-weight: bold;
+	color: #ffffff;
+	vertical-align: middle;
+	line-height: 40px;
+	background-color:#009900;
+	display:block;
+}
+
+.AppLoading{
+	position:fixed;
+	top:0px;bottom:0px;
+	left:0px;right:0px;
+	z-index: 9999;
+	background-color:#ffffff;
+}
+.AppLoaded{
+	position:fixed;
+	top:-100px;
+	left:-100px;
+	height:1px;
+	width:1px;
+	display:none;
+}
+
+.IconRow{
+	margin: auto;
+	width:92%;
+}
+
+.IconCell{
+	float:left;
+	width:32%;
+	min-height:100px;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	text-align: center;
+	font-size: 10px;
+	font-weight: bold;
+	color: #666666;
+	vertical-align: middle;
+}
+#CustomersDiv {width:100%;height:100%;background-color:#eeeeee;position: relative;}
+#CanvasDiv {width:100%;height:100%;background-color:#eeeeee;position: relative;}
+#CameraDiv {width:100%;height:100%;background-color:#eeeeee;position: relative;}
+#MapDiv {width:100%;height:100%;background-color:#eeeeee;position: relative;}
+#CalculatorDiv {width:100%;height:100%;background-color:#eeeeee;position: relative;}
+#SettingsDiv {width:100%;height:100%;background-color:#eeeeee;position: relative;}
+#TasksDiv {width:100%;height:100%;background-color:#eeeeee;position: relative;}
+#ChatDiv {width:100%;height:100%;background-color:#eeeeee;position: relative;}
+#CompanyDirectoryDiv {width:100%;height:100%;background-color:#eeeeee;position: relative;}
+#InpirationDiv {width:100%;height:100%;background-color:#eeeeee;position: relative;}
+#WeatherDiv {width:100%;height:100%;background-color:#eeeeee;position: relative;}
+#CallTomDiv {width:100%;height:100%;background-color:#eeeeee;position: relative;}
+#CalendarDiv {width:100%;height:100%;background-color:#eeeeee;position: relative;}
+#MessagesDiv {width:100%;height:100%;background-color:#eeeeee;position: relative;}
+#LocationDiv {width:100%;height:100%;background-color:#eeeeee;position: relative;}
+#LoginDiv {width:100%;height:100%;background-color:#eeeeee;position: relative;}
+
+
+
+
+

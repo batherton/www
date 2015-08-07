@@ -1,98 +1,66 @@
 
 var app = {
-
+    // Application Constructor
     initialize: function() {
-
         this.bindEvents();
-
     },
-
+    // Bind Event Listeners
+    //
+    // Bind any events that are required on startup. Common events are:
     // 'load', 'deviceready', 'offline', and 'online'.
-
     bindEvents: function() {
-
         document.addEventListener('deviceready', this.onDeviceReady, false);
-
-       // document.addEventListener("offline", onOffline, false);
-       // document.addEventListener("online", onOnline, false);
     },
 
-    onDeviceReady: function() {
+    //onSuccess: function(position) {
+	//	document.getElementById('AppLoading').style="display:none;";
+	//	document.getElementById('AppLoading').className="AppLoaded";
+	//	document.getElementById('Latitude').value = position.coords.latitude;
+	//	document.getElementById('Longitude').value = position.coords.longitude;
+	//	document.getElementById('Altitude').value = position.coords.altitude;
+	//	document.getElementById('Accuracy').value = position.coords.accuracy;
+	//	document.getElementById('AltitudeAccuracy').value = position.coords.altitudeAccuracy;
+	//	document.getElementById('Heading').value = position.coords.heading;
+	//	document.getElementById('Speed').value = position.coords.speed;
+	//	document.getElementById('Timestamp').value = position.timestamp;
+	//},
 
-        app.receivedEvent('deviceready');
+	//onError: function(error) {
+		//alert('Please Enable Location Services');
+	    //alert('code: '    + error.code    + '\n' + 'message: ' + error.message + '\n');
+	//},
 
-        app.TrackingEvent();
+	//OnDevicePlatformSuccess: function(){
+	//	document.getElementById('DeviePlatform').value = device.platform;
+	//},
+	//OnDevicePlatformError: function(error){
+	//		alert(error);
+	//},
+
+
+    // The scope of 'this' is the event. In order to call the 'receivedEvent'
+    // function, we must explicitly call 'app.receivedEvent(...);'
+    onDeviceReady: function() {
+		//alert('Device Ready');
+		//navigator.geolocation.getCurrentPosition(app.onSuccess, app.onError);
+		//document.getElementById('DevicePlatform').value = device.platform;
+		//document.getElementById('DeviceID').value = device.uuid;
+		//document.getElementById('DeviceModel').value = device.model;
+		//document.getElementById('DeviceVersion').value = device.version;
+		OnLoadActions();
+		//navigator.notification.vibrate();
+		app.receivedEvent('deviceready');
+
 
     },
-
-
-    onOffline: function(){
-	//document.getElementById('NetworkConnectionType').value = "No network connection";
-    },
-    onOnline: function(){
-	//document.getElementById('NetworkConnectionType').value = "Online";
-    },
-
+    // Update DOM on a Received Event
     receivedEvent: function(id) {
-
         var parentElement = document.getElementById(id);
-
         var listeningElement = parentElement.querySelector('.listening');
-
         var receivedElement = parentElement.querySelector('.received');
+        listeningElement.setAttribute('style', 'display:none;');
+        receivedElement.setAttribute('style', 'display:block;');
+        console.log('Received Event: ' + id);
 
-
-         listeningElement.setAttribute('style', 'display:none;');
-
-         receivedElement.setAttribute('style', 'display:block;');
-
-
-	  document.getElementById('DeviceInfo').innerHTML = device.model+' '+device.platform+'<br> '+device.version+'<br>'+device.uuid+'<br>connection: '+navigator.connection.type;
-    },
-    TrackingEvent: function(){
-	var TrackLocation = navigator.geolocation.watchPosition(onCurLocSuccess, onCurLocError, { maximumAge: 3000, enableHighAccuracy: true });
     }
 };
-
-
-
-//var watchID = navigator.geolocation.getCurrentPosition(onCurLocSuccess, onCurLocError, { maximumAge: 3000, enableHighAccuracy: true });
-
-//function SetTrackLocation{
-//var TrackLocation = navigator.geolocation.watchPosition(onCurLocSuccess, onCurLocError, { maximumAge: 3000, enableHighAccuracy: true });
-//};
-
-function onCurLocSuccess(position) {
-    var element = document.getElementById('geolocation');
-    element.innerHTML = 'Latitude: '  + position.coords.latitude      + '<br/>' +
-                        'Longitude: ' + position.coords.longitude     + '<br/>' +
-		        'Altitude: '          + position.coords.altitude          + '<br/>' +
-		        'Accuracy: '          + position.coords.accuracy          + '<br/>' +
-        		'Altitude Accuracy: ' + position.coords.altitudeAccuracy  + '<br/>' +
-        		'Heading: '           + position.coords.heading           + '<br/>' +
-        		'Speed: '             + position.coords.speed             + '<br/>' +
-        		'Timestamp: '         + position.timestamp                + '<br/>'
-                       // '<hr />'      + element.innerHTML;
-};
-
-function onCurLocError(error) {
-    alert('code: '    + error.code    + '\n' +
-          'message: ' + error.message + '\n');
-};
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

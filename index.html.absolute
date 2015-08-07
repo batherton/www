@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+        <meta charset="utf-8" />
+
+        <meta name="format-detection" content="telephone=yes" />
+
+        <meta name="msapplication-tap-highlight" content="no" />
+
+        <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
+
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+
+        <link rel="stylesheet" type="text/css" href="css/appcss.css" />
+
+	<link rel="stylesheet" type="text/css" href="css/jquery.mobile-1.4.5.css" rel="stylesheet"/>
+	<link rel="stylesheet" type="text/css" href="css/jquery-ui.min.css" rel="stylesheet"/>
+        <script type="text/javascript" src="cordova.js"></script>
+
+        <script type="text/javascript" src="js/index.js"></script>
+
+	<script type="text/javascript" src="js/jquery-1.11.2.min.js"></script>
+	<script type="text/javascript" src="js/jquery.mobile-1.4.5.min.js"></script>
+	<script type="text/javascript" src="js/jquery-ui.min.js"></script>
+        <script type="text/javascript">app.initialize();</script>
+
+        <title>Nationwide</title>
+
+
+<link rel="apple-touch-icon" href="/img/MCanvassApple.png"/>
+
+
+</head>
+
+<body>
+
+<script>
+function getPhoneGapPath () {
+    'use strict';
+    var path = window.location.pathname;
+    var phoneGapPath = path.substring(0, path.lastIndexOf('/') + 1);
+    return phoneGapPath;
+}
+var my_media = null;
+var mediaTimer = null;
+
+function playAudio(src, srctype) {
+ if (srctype == "0"){
+	var resource = getPhoneGapPath() + src;
+ }
+ if (srctype == "1"){
+	var resource = src;
+ }
+    my_media = new Media(resource, onAudioSuccess, onAudioError);
+    my_media.play();
+}
+
+function onAudioSuccess() {
+    //console.log("playAudio():Audio Success");
+}
+function onAudioError(error) {
+   // alert('code: ' + error.code + '\n' +
+   //     'message: ' + error.message + '\n');
+}
+</script>
+
+
+
+ <script>
+ $(function() {
+	function runEffect(str) {
+	 if ($( "#UID" ).val() === "")
+	 {
+	  var OpenDv = "LoginDiv";
+	   $("#BottomAppMenu").hide(selectedEffect, options, 500);
+	   $("#AppSearch").hide('blind', options, 100);
+	   $("#PreLogin").show('blind', options, 500);
+	   $("#HeaderSection").val("PreLogin");
+	   $("#FooterSection").val("BlankFooter");
+	 }else{
+	  var OpenDv = str;
+	 }
+		var selectedEffect = $("#DivTransitionType").val();
+		var getCloseDiv = $("#DivCurrentlyOpen").val();
+		var CloseDiv = "#"+getCloseDiv;
+		var OpenDiv = "#"+OpenDv;
+
+		if (OpenDiv != CloseDiv){
+		 var options = {};
+	
+		 if ( selectedEffect === "scale" ) {
+		 options = { percent: 100 };
+		 } else if ( selectedEffect === "size" ) {
+		 options = { to: { width: 280, height: 185 } };
+		 }
+		 $(CloseDiv).hide(selectedEffect, options, 500);
+		 $(OpenDiv).show(selectedEffect, options, 500);
+		 $("#DivCurrentlyOpen").val(OpenDv);
+		}
+
+		if ($("#FooterSection").val() === "BlankFooter" && $("#UID").val() != ""){
+		 $("#BottomAppMenu").show('blind', options, 500);
+		 $("#FooterSection").val("BottomAppMenu");
+		} 
+
+		if ($("#HeaderSection").val() === "PreLogin" && $("#UID").val() != ""){
+		 $("#PreLogin").hide('blind', options, 500);
+		 $("#AppSearch").show('blind', options, 500);
+		 $("#HeaderSection").val("AppSearch");
+		} 
+
+};
+$( "#HomeButton" ).click(function() { runEffect('AppContentMain');});
+$( "#CalendarButton" ).click(function() { runEffect('CalendarDiv');})
+$( "#MessagesButton" ).click(function() { runEffect('MessagesDiv');})
+$( "#LocationButton" ).click(function() { runEffect('LocationDiv');})
+$( "#CustomersIcon" ).click(function() { runEffect('CustomersDiv');});
+$( "#CanvasIcon" ).click(function() { runEffect('CanvasDiv');});
+$( "#CameraIcon" ).click(function() { runEffect('CameraDiv');});
+$( "#MapIcon" ).click(function() { runEffect('MapDiv');});
+$( "#CalculatorIcon" ).click(function() { runEffect('CalculatorDiv');});
+$( "#SettingsIcon" ).click(function() { runEffect('SettingsDiv');});
+$( "#TasksIcon" ).click(function() { runEffect('TasksDiv');})
+$( "#ChatIcon" ).click(function() { runEffect('ChatDiv');})
+$( "#CompanyDirectoryIcon" ).click(function() { runEffect('CompanyDirectoryDiv');})
+$( "#InpirationIcon" ).click(function() { runEffect('InpirationDiv');})
+$( "#WeatherIcon" ).click(function() { runEffect('WeatherDiv');})
+$( "#CallTomIcon" ).click(function() { runEffect('CallTomDiv');})
+$( "#LogoutIcon" ).click(function() { $( "#UID" ).val("");runEffect('LoginDiv');})
+
+//make list of all divs that need to be closed on load
+
+$( "#CustomersDiv" ).hide();
+$( "#CanvasDiv" ).hide();
+$( "#CameraDiv" ).hide();
+$( "#MapDiv" ).hide();
+$( "#CalculatorDiv" ).hide();
+$( "#SettingsDiv" ).hide();
+$( "#TasksDiv" ).hide();
+$( "#ChatDiv" ).hide();
+$( "#CompanyDirectoryDiv" ).hide();
+$( "#InpirationDiv" ).hide();
+$( "#WeatherDiv" ).hide();
+$( "#CallTomDiv" ).hide();
+$( "#CalendarDiv" ).hide();
+$( "#MessagesDiv" ).hide();
+$( "#LocationDiv" ).hide();
+$( "#BottomAppMenu" ).hide();
+if ($( "#UID" ).val() == "")
+{
+ $( "#AppContentMain" ).hide();
+ $( "#AppSearch" ).hide();
+ $("#InspirationQuote").load("http://www.netmet.com/feeds/inspirationquote.asp");
+  runEffect('LoginDiv');
+}else{
+ $( "#LoginDiv" ).hide();
+ $( "#AppSearch" ).show('blind', options, 500);
+}
+
+});
+</script>
+
+
+<script type="text/javascript" language="javascript">
+
+  $(document).ready(function() {
+      $("#LoginButton").click(function(event){
+          $.post( 
+             "http://www.netmet.com/Mobile/Login.asp",
+             { un: $( "#UserName" ).val(), pw: $( "#Password" ).val() },
+             function(data) {
+		var strresults = data;
+			var actionressults = strresults.split("|~|")
+
+			 if (actionressults[0] === "Success")
+			  {
+				$(function () {
+				  $('#UID').val(actionressults[1]);
+				  $('#DivCurrentlyOpen').val("LoginDiv");
+				  $('#HomeButton').click();
+				});
+			  }
+			 if (actionressults[0] === "Fail")
+			  {
+				$(function () {
+				  $('#UID').val("");
+				});
+			  }
+
+			 if (actionressults[0] != "Fail" && actionressults[0] != "Success")
+			  {
+				$(function () {
+				  $('#UID').val("");
+				});
+				alert('Something wrong with log in');
+			  }
+             }
+          );
+      });
+   });
+
+</script>
+<div id="TotalPageWrapper" style="width:100%;height:100%;border: 0px;overflow:hidden;">
+
+<div id="AppLoading" class="AppLoading" style="display:none;"><table width="100%" height="100%" cellpadding="0" cellspacing="0" border="0"><tr><td align="center" valing="middle"><img src="/img/splashloading.gif"></td></tr></table></div>
+<div id="eMess" style="position:fixed; top:40px; height:40px; width:100%;z-index:5000;" align="center" class="eMess"></div>
+
+<div id="TopAppMenu" class="TopMenu">Nationwide</div>
+
+<div id="PreLogin" class="PreLogin">
+<div style="position:relative;top:10px;left:0px;" id="InspirationQuote"></div>
+</div>
+
+<div id="AppSearch" class="AppSearch">
+ <table width="90%" height="44" cellpadding="0" cellspacing="0" border="0">
+  <tr>
+    <td width="15"></td>
+    <td width="25" valign="middle" OnClick="document.getElementById('SearchBox').focus();"><img src="/img/search_grey_20.png"></td>
+    <td class="AppSearchBoxTitle" OnClick="document.getElementById('SearchBox').focus();">Search&nbsp;&nbsp;</td>
+    <td align="left"><input type="text" id="SearchBox" value="" class="AppSearchBox"></td>
+  </tr>
+ </table>
+</div>
+<div id="AppContent" class="AppContent">
+
+  <div id="AppContentMain" class="AppContentMain">
+	<br>
+	  <div id="IconRow" class="IconRow">
+		<div id="CustomersIcon" class="IconCell"><img src="img/icon_customer.png"><br>Customers</div>
+		<div id="CanvasIcon" class="IconCell"><img src="img/icon_canvas.png"><br>Canvas</div>
+		<div id="CameraIcon" class="IconCell"><img src="img/icon_camera.png"><br>Camera</div>
+	  </div>
+	  <div id="IconRow" class="IconRow">
+		<div id="MapIcon" class="IconCell"><img src="img/icon_map.png"><br>Map</div>
+		<div id="CalculatorIcon" class="IconCell"><img src="img/icon_calculator.png"><br>Calculator</div>
+		<div id="SettingsIcon" class="IconCell"><img src="img/icon_gear.png"><br>Settings</div>
+	  </div>
+	  <div id="IconRow" class="IconRow">
+		<div id="TasksIcon" class="IconCell"><img src="img/icon_task.png"><br>Tasks</div>
+		<div id="ChatIcon" class="IconCell"><img src="img/icon_chat.png"><br>Chat</div>
+		<div id="CompanyDirectoryIcon" class="IconCell"><img src="img/icon_company.png"><br>Company Directory</div>
+	  </div>
+	  <div id="IconRow" class="IconRow">
+		<div id="InpirationIcon" class="IconCell"><img src="img/icon_play.png" OnClick="playAudio('http://www.netmet.com/music/complete.wav','1');"><br>Inpiration</div>
+		<div id="WeatherIcon" class="IconCell"><img src="img/icon_weather.png"><br>Weather</div>
+		<div id="CallTomIcon" class="IconCell"><img src="img/icon_surprised.png"><br>Quick Call Tom!</div>
+	  </div>
+	  <div id="IconRow" class="IconRow">
+		<div id="LogoutIcon" class="IconCell"><img src="img/icon_logout.png" ><br>Logout</div>
+		<div class="IconCell">&nbsp</div>
+		<div  class="IconCell">&nbsp;</div>
+	  </div>
+  </div>
+
+  <div id="CustomersDiv">Customers</div>
+  <div id="CanvasDiv">Canvas</div>
+  <div id="CameraDiv">Camera</div>
+  <div id="MapDiv">Map</div>
+  <div id="CalculatorDiv">Calculator</div>
+  <div id="SettingsDiv">Settings</div>
+  <div id="TasksDiv">Tasks</div>
+  <div id="ChatDiv">Chat</div>
+  <div id="CompanyDirectoryDiv">Company Directory</div>
+  <div id="InpirationDiv">Inpiration</div>
+  <div id="WeatherDiv">Weather</div>
+  <div id="CallTomDiv">Call Tom</div>
+  <div id="CalendarDiv">Calendar</div>
+  <div id="MessagesDiv">Messages</div>
+  <div id="LocationDiv">Location</div>
+  <div id="LoginDiv"><br>
+
+	 <table width="100%" cellpadding="0" cellspacing="0" border="0">
+	  <tr>
+	   <td colspan="3" height="10"></td>
+	  </tr>
+	  <tr>
+	   <td colspan="3" height="20"></td>
+	  </tr>
+	  <tr>
+	   <td colspan="3" height="10"></td>
+	  </tr>
+	  <tr>
+	   <td colspan="3" id="UsernameTitle" class="FormFieldTitle">Username</td>
+	  </tr>
+	  <tr>
+	   <td width="5%"></td>
+	   <td id="FormFieldDiv" class="FormFieldDiv" align="center"><input type="text" id="UserName" value="" class="FormTextField"></td>
+	   <td width="5%"></td>
+	  </tr>
+	  <tr>
+	   <td colspan="3" height="10"></td>
+	  </tr>
+	  <tr>
+	   <td colspan="3" id="UsernameTitle" class="FormFieldTitle">Password</td>
+	  </tr>
+	  <tr>
+	   <td width="5%"></td>
+	   <td id="FormFieldDiv" class="FormFieldDiv" align="center"><input type="password" id="Password" value="" class="FormTextField"></td>
+	   <td width="5%"></td>
+	  </tr>
+	  <tr>
+	   <td colspan="3" height="10"></td>
+	  </tr>
+	  <tr>
+	   <td colspan="3" align="center"><div class="button white" id="LoginButton">Log In</div></td>
+	  </tr>
+	 </table>
+
+  </div>
+</div>
+
+<div id="BottomAppMenu" class="BottomMenu">
+ <table width="100%" height="69" cellpadding="0" cellspacing="0" border="0">
+  <tr>
+   <td class="BottomMenuLeftButton" align="center" valign="middle" width="25%" id="HomeButton"><img src="/img/home_grey_30.png"><br>HOME</td>
+   <td class="BottomMenuButton" align="center" valign="middle" width="25%" id="CalendarButton"><img src="/img/calendar_grey_30.png"><br>CALENDAR</td>
+   <td class="BottomMenuButton" align="center" valign="middle" width="25%" id="MessagesButton"><img src="/img/messages_grey_30.png"><br>MESSAGES</td>
+   <td class="BottomMenuRightButton" align="center" valign="middle" width="25%" id="LocationButton"><img src="/img/location_grey_30.png"><br>Location</td>
+  </tr>
+ </table>
+</div>
+
+<input type="hidden" id="DivTransitionType" value="slide">
+<input type="hidden" id="DivCurrentlyOpen" value="AppContentMain">
+<input type="hidden" id="HeaderSection" value="PreLogin">
+<input type="hidden" id="FooterSection" value="BlankFooter">
+
+<input type="hidden" id="Longitude" value="">
+<input type="hidden" id="Latitude" value="">
+<input type="hidden" id="Altitude" value="">
+<input type="hidden" id="Accuracy" value="">
+<input type="hidden" id="AltitudeAccuracy" value="">
+<input type="hidden" id="Heading" value="">
+<input type="hidden" id="Speed" value="">
+<input type="hidden" id="Timestamp" value="">
+<input type="hidden" id="DevicePlatform" value="">
+<input type="hidden" id="DeviceModel" value="">
+<input type="hidden" id="DeviceID" value="">
+<input type="hidden" id="DeviceVersion" value="">
+<input type="hidden" id="UID" value="">
+</div>
+    </body>
+
+</html>

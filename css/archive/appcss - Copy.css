@@ -1,0 +1,161 @@
+* {
+    -webkit-tap-highlight-color: rgba(0,0,0,0); /* make transparent link selection, adjust last value opacity 0 to 1.0 */
+}
+
+body {
+    -webkit-touch-callout: none;                /* prevent callout to copy image, etc when tap to hold */
+    -webkit-text-size-adjust: none;             /* prevent webkit from resizing text to fit */
+    -webkit-user-select: text;                  /* prevent copy paste, to allow, change 'none' to 'text' */
+
+    background-color:#DBDBDB;
+    font-family:'HelveticaNeue-Light', 'HelveticaNeue', Helvetica, Arial, sans-serif;
+    font-size:12px;
+    height:100%;
+    margin:0px;
+    padding:0px;
+    text-transform:uppercase;
+    width:100%;
+}
+
+.TopMenu {
+    background-image:-webkit-gradient(
+        linear,
+        left top,
+        left bottom,
+        color-stop(0, #FDB200),
+        color-stop(0.51, #E58701)
+    );
+	position:fixed;
+	top:0px;
+	left:0px;
+	right:0px;
+	height:40px;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	text-align: center;
+	font-size: 16px;
+	font-weight: bold;
+	color: #ffffff;
+	vertical-align: middle;
+	line-height: 40px;
+}
+
+.BottomMenu {
+    background-image:-webkit-gradient(
+        linear,
+        left top,
+        left bottom,
+        color-stop(0, #464646),
+        color-stop(0.51, #242424)
+    );
+	position:fixed;
+	bottom:0px;
+	left:0px;
+	right:0px;
+	height:70px;
+	width:100%;
+	text-align: center;
+	display: table;
+}
+.BottomMenuButton{
+	width:24%;
+	height:69px;
+	float:left;
+	color:#ffffff;
+	text-align: center;
+	border-right: 1px solid #cccccc;
+	display:table-cell;
+    	vertical-align:middle;
+}
+
+.BottomMenuRightButton{
+	width:25%;
+	height:69px;
+	float:left;
+	color:#ffffff;
+	text-align: center;
+	display:table-cell;
+    	vertical-align:middle;
+}
+
+.BottomMenuLeftButton{
+	width:25%;
+	height:69px;
+	float:left;
+	color:#ffffff;
+	text-align: center;
+	border-right: 1px solid #cccccc;
+	border-top: 1px solid #0000ff;
+	display:table-cell;
+    	vertical-align:middle
+}
+
+.AppContent {
+	background-color:#DBDBDB;
+	position:fixed;
+	top:106px;
+	bottom:71px;
+	left:0px;
+	right:0px;
+	overflow:auto;
+}
+
+.AppSearch{
+	background-color:#ffffff;
+	border: 1px solid #ffffff;
+	border-radius: 16px;
+	height:44px;
+	width:92%;
+	position:fixed;
+	top:51px;
+	left:4%;
+	right:4%;
+}
+
+.eMess{
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	text-align: center;
+	font-size: 16px;
+	font-weight: bold;
+	color: #ffffff;
+	vertical-align: middle;
+	line-height: 40px;
+	display:none;
+}
+.eMessErr{
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	text-align: center;
+	font-size: 16px;
+	font-weight: bold;
+	color: #ffffff;
+	vertical-align: middle;
+	line-height: 40px;
+	background-color:#ff6666;
+	display:block;
+}
+.eMessGood{
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	text-align: center;
+	font-size: 16px;
+	font-weight: bold;
+	color: #ffffff;
+	vertical-align: middle;
+	line-height: 40px;
+	background-color:#009900;
+	display:block;
+}
+
+.Buttonspan {
+  height:69px;
+  display: inline-block;
+  vertical-align: middle;
+  /*line-height: normal; */  
+  background-color:#ff0000;   
+}
+
+
+
+
+
+
+
+
